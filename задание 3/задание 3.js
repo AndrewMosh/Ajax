@@ -38,32 +38,28 @@ const resultNode = document.getElementById("picContainer");
 const btnNode = document.getElementById("pressButt");
 
 function displayResult(apiData) {
-  let cards = "";
-
-  apiData.forEach((item) => {
-    const cardBlock = `<div><img src = "${item.download_url}><p>${item.author}</p></div>`;
-    cards = cards + cardBlock;
-    resultNode.innerHTML = cards;
-  });
+  const cardBlock = `<img src = "${apiData.file}" /><p> Автор: ${apiData.owner}</p>`;
+  resultNode.innerHTML = cardBlock;
 }
 
-btnNode.addEventListener("click", function () {
-  const inputValue = document.getElementById("pic-number").value;
+btnNode.addEventListener("click", () => {
+  const inputValue = document.querySelector(".pic-number").value;
+  const inputValue2 = document.querySelector(".pic-number2").value;
+
   if (!isNaN(parseFloat(inputValue))) {
-    if (inputValue > 10 || inputValue < 1) {
-      resultNode.innerHTML = `<p>Число вне диапазона от 1 до 10</p>`;
-      timerId;
+    if (inputValue > 500 || inputValue < 100) {
+      resultNode.innerHTML = `<p>вне диапазона от 100 до 500!</p>`;
     } else {
       useRequest(
-        "https://picsum.photos/v2/list/?limit=" + inputValue,
+        "https://loremflickr.com/json/g/" +
+          inputValue +
+          "/" +
+          inputValue2 +
+          "/all",
         displayResult
       );
     }
+  } else {
+    resultNode.innerHTML = `<p> Вы ничего не ввели</p>`;
   }
 });
-
-let timerId = setInterval(() => {
-  resultNode.innerHTML = "";
-}, 8000);
-
-//возвращает ошибку 403
