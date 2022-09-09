@@ -38,8 +38,14 @@ const resultNode = document.getElementById("picContainer");
 const btnNode = document.getElementById("pressButt");
 
 function displayResult(apiData) {
-  const cardBlock = `<img src = "${apiData.file}" /><p> Автор: ${apiData.owner}</p>`;
-  resultNode.innerHTML = cardBlock;
+  const inputValue3 = document.querySelector(".pic-number3").value;
+  var cardBlock = [];
+  for (let i = 0; i < inputValue3; i++) {
+    cardBlock[
+      i
+    ] = `<div><img src = "${apiData.file}" /><p> Автор: ${apiData.owner}</p></div>`;
+    resultNode.innerHTML = cardBlock;
+  }
 }
 
 btnNode.addEventListener("click", () => {
@@ -48,7 +54,9 @@ btnNode.addEventListener("click", () => {
 
   if (!isNaN(parseFloat(inputValue))) {
     if (inputValue > 500 || inputValue < 100) {
-      resultNode.innerHTML = `<p>вне диапазона от 100 до 500!</p>`;
+      resultNode.innerHTML = `<p>Ширина вне диапазона от 100 до 500!</p>`;
+    } else if (inputValue2 > 500 || inputValue2 < 100) {
+      resultNode.innerHTML = `<p>Высота вне диапазона от 100 до 500!</p>`;
     } else {
       useRequest(
         "https://loremflickr.com/json/g/" +
@@ -63,3 +71,11 @@ btnNode.addEventListener("click", () => {
     resultNode.innerHTML = `<p> Вы ничего не ввели</p>`;
   }
 });
+
+if (!isNaN(parseFloat(inputValue2))) {
+  if (inputValue2 > 500 || inputValue2 < 100) {
+    resultNode.innerHTML = `<p>вне диапазона от 100 до 500!</p>`;
+  }
+} else {
+  resultNode.innerHTML = `<p> Вы ничего не ввели</p>`;
+}

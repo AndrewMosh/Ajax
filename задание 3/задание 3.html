@@ -5,21 +5,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>XMLHTTP request</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(90deg, #747576, #fdfdfd);
+      }
+
+      .input-container {
+        display: flex;
+        gap: 20px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+      }
+      .input-container button {
+        border-radius: 12px;
+        cursor: pointer;
+      }
+      #picContainer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+      }
+      #picContainer p {
+        overflow: scroll;
+      }
+    </style>
   </head>
   <body>
-    <input
-      class="pic-number"
-      style="width: 200px"
-      type="number"
-      placeholder="Введите число от 100 до 500"
-    />
-    <input
-      class="pic-number2"
-      style="width: 200px"
-      type="number"
-      placeholder="Введите число от 100 до 500"
-    />
-    <button id="pressButt">Жми</button>
+    <div class="input-container">
+      <label for=""
+        >Ширина изображения<br /><input
+          class="pic-number"
+          style="width: 200px"
+          type="number"
+          placeholder="Введите число от 100 до 500"
+      /></label>
+      <label for=""
+        >Высота изображения <br />
+        <input
+          class="pic-number2"
+          style="width: 200px"
+          type="number"
+          placeholder="Введите число от 100 до 500"
+      /></label>
+      <label for=""
+        >Сколько изображений вывести? <br />
+        <input
+          class="pic-number3"
+          style="width: 200px"
+          type="number"
+          placeholder="Введите любое число"
+      /></label>
+      <button id="pressButt">Жми</button>
+    </div>
+
     <div id="picContainer"></div>
     <script src="задание 3.js"></script>
   </body>
