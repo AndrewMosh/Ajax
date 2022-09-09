@@ -40,11 +40,15 @@ const btnNode = document.getElementById("pressButt");
 function displayResult(apiData) {
   const inputValue3 = document.querySelector(".pic-number3").value;
   var cardBlock = [];
-  for (let i = 0; i < inputValue3; i++) {
-    cardBlock[
-      i
-    ] = `<div><img src = "${apiData.file}" /><p> Автор: ${apiData.owner}</p></div>`;
-    resultNode.innerHTML = cardBlock;
+  if (inputValue3 <= 10) {
+    for (let i = 0; i < inputValue3; i++) {
+      cardBlock[
+        i
+      ] = `<div><img src = "${apiData.file}" /><p> Автор: ${apiData.owner}</p></div>`;
+      resultNode.innerHTML = cardBlock;
+    }
+  } else {
+    resultNode.innerHTML = "число вне диапазона от 1 до 10";
   }
 }
 
