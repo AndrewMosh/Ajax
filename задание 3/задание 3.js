@@ -54,9 +54,9 @@ btnNode.addEventListener("click", () => {
 
   if (!isNaN(parseFloat(inputValue))) {
     if (inputValue > 500 || inputValue < 100) {
-      resultNode.innerHTML = `<p>Ширина вне диапазона от 100 до 500!</p>`;
+      resultNode.innerHTML = `<p>Число вне диапазона от 100 до 500!</p>`;
     } else if (inputValue2 > 500 || inputValue2 < 100) {
-      resultNode.innerHTML = `<p>Высота вне диапазона от 100 до 500!</p>`;
+      resultNode.innerHTML = `<p>Число вне диапазона от 100 до 500!</p>`;
     } else {
       useRequest(
         "https://loremflickr.com/json/g/" +
@@ -71,11 +71,3 @@ btnNode.addEventListener("click", () => {
     resultNode.innerHTML = `<p> Вы ничего не ввели</p>`;
   }
 });
-
-if (!isNaN(parseFloat(inputValue2))) {
-  if (inputValue2 > 500 || inputValue2 < 100) {
-    resultNode.innerHTML = `<p>вне диапазона от 100 до 500!</p>`;
-  }
-} else {
-  resultNode.innerHTML = `<p> Вы ничего не ввели</p>`;
-}
